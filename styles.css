@@ -1,0 +1,109 @@
+/* General styles */
+body, h3, p {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+body {
+    background-color: #add8e6; /* pale blue */
+    color: #000; /* black */
+}
+
+/* Styling for the header and navigation */
+header {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    background-color: #fff;
+    padding: 10px;
+}
+.logo img {
+    max-width: 100%;
+}
+.nav-bar ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
+.nav-bar li {
+    position: relative;
+}
+.nav-bar a {
+    text-decoration: none;
+    color: #000;
+    padding: 5px 10px;
+}
+.nav-bar li ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    white-space: nowrap;
+    background-color: #fff;
+}
+.nav-bar li:hover ul {
+    display: block;
+}
+
+/* Main content styling with grid */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 10px; /* padding between columns */
+    padding: 20px 0;
+}
+/* .column-1 {
+    background-color: #f5f5f5;
+    padding: 20px;
+} */
+.column-1 {
+    background-color: #f5f5f5;
+    padding: 1rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /*insures that my image is above the text rather than beside it*/
+}
+
+.column-1 img {
+    display: block;
+    border: 5px solid black;
+    margin: 2rem auto;
+}
+
+.column-1 p {
+    text-indent: 2rem;
+    margin-top: 1rem;
+}
+
+.column-2 .portfolio-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1rem;
+    row-gap: 1rem;
+}
+
+.portfolio-item, .everything-else {
+    border: 5px solid black;
+    padding: 1rem;
+    text-align: center;
+}
+
+.everything-else {
+    margin-top: 1rem;
+}
+
+.everything-else img {
+    width: 100%;
+    gap: 1rem;    
+}
+
+img {
+    max-width: 100%;
+}
+
+/* Footer styles */
+footer {
+    background-color: #fff;
+    padding: 10px;
+    text-align: center;
+}
