@@ -1,0 +1,307 @@
+/* General styles */
+body, h3, p {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+body {
+    background-color: #add8e6;
+    color: #000;
+}
+
+/* Styling for the header and navigation */
+/* NEEDS LOTS OF WORK */
+header {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    background-color: #fff;
+    padding: 10px;
+}
+.logo img {
+    max-width: 100%;
+    border: 2px solid rgb(0, 0, 0);
+}
+
+.nav-bar {
+    margin-top: auto;
+    font-weight: bold;
+}
+.nav-bar ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
+.nav-bar li {
+    position: relative;
+}
+.nav-bar a {
+    text-decoration: none; /* Remove underlines from links */
+    color: #000; /* Change link color */
+    padding: 20px 20px;
+}
+.nav-bar li ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    white-space: nowrap;
+    background-color: #fff;
+}
+.nav-bar li:hover ul {
+    display: block;
+}
+
+.nav-bar ul li {
+    display: inline-block; /* Display content in a single line*/
+    position: relative; /* Position sub-menu relative to top-menu item */
+    background: #add8e6; /* Change background color of list items */
+    padding: 15px 0px; /* Add space around text */
+    margin: 0 ;
+    font: bold 1.2rem/1.4rem; /* font style */
+    border-radius: 2px; /* Round corners */
+}
+
+.nav-bar ul li ul {
+    left: -9999999999px; /* place sub-menu off screen */
+    top: 48px; /* tweak vertical position of sub-menu*/
+    position: absolute; /* position sub-menu absolutely underneath menu items */
+}
+
+.nav-bar ul li:hover ul {
+    left: 0px; /* Bring sub-menu back on-screen*/
+    width: 250px;
+  }
+
+.nav-bar ul li:hover {
+    background: #9e9e9ee5; /* Change color on hover */ /*suggested 90% opacity*/
+  }
+
+.nav-bar ul li ul li {
+    
+    display: block; /* Display sub-menu as one large block */
+    background: #add8e6; /* Initially show submenu with black background */
+  }
+
+.nav-bar ul li ul li:hover {
+    background: #9e9e9ee5; /*suggested 90% opacity*/
+  }
+
+.nav-bar ul li ul li a {
+    color: #000; /* Set font color in drop down*/
+  }
+
+/* Main content styling with grid */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 10px; /* padding between columns */
+    padding: 20px 0;
+}
+/* .column-1 {
+    background-color: #f5f5f5;
+    padding: 20px;
+} */
+.column-1 {
+    background-color: #f5f5f5;
+    padding: 1rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /*insures that my image is above the text rather than beside it*/
+    margin-left: 1rem;
+}
+
+.column-1 img {
+    display: block;
+    border: 5px solid black;
+    margin: 2rem auto; /* Figure out what's wrong with the image alignment here */
+
+}
+
+.column-1 p {
+    text-indent: 2rem;
+    margin-top: 1rem;
+    line-height: 2;
+}
+
+.column-2 .portfolio-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1rem;
+    row-gap: 1rem;
+    margin: 0 1rem;
+}
+
+.column-2 .everything-else {
+    margin: 1rem;
+}
+
+.portfolio-item, .everything-else {
+    border: 5px solid black;
+    padding: 1rem;
+    text-align: center;
+}
+
+.portfolio-item a, .everything-else a {
+    text-decoration: none;
+    color: black;
+}
+
+.portfolio-item:hover, .everything-else:hover {
+    background-color: rgb(255, 255, 255); /* background color of hovered image */
+    transform: scale(1.025); /* increases size when hovered */
+    transition: 0.3s; /* speed in which the image increases when hovered */
+}
+
+
+.everything-else {
+    margin-top: 1rem;
+}
+
+.everything-else img {
+    width: 100%;
+    /* gap: 5rem;   I don't think this is doing anything -  come back to it - can probably erase  */
+}
+
+img {
+    max-width: 100%;
+}
+
+/* Footer styles */
+footer {
+    background-color: #ffffff;
+    padding: 30px;
+    text-align: center;
+    line-height: 2.0;
+}
+
+footer a {
+    text-decoration: none;
+}
+
+/* Media Query for Mobile Devices */
+@media (max-width: 768px) {
+    /* Header grid for mobile */
+    header {
+        display: grid;
+        grid-template-columns: 1fr;
+        background-color: #fff;
+        padding: 10px;
+    }
+
+    .nav-bar ul {
+        flex-direction: column; 
+        /* align-items: center; */
+    }
+
+    .logo img {
+        max-width: 100%;
+        border: 2px solid rgb(0, 0, 0);
+        align-items:center;
+    }
+    
+    .nav-bar {
+        margin-top: auto;
+        font-weight: bold;
+    }
+    .nav-bar ul {
+        list-style: none;
+        padding: 100;
+        display: flex;
+        justify-content: space-between;
+    }
+    .nav-bar li {
+        position: relative;
+    }
+    .nav-bar a {
+        text-decoration: none; /* Remove underlines from links */
+        color: #000; /* Change link color */
+        padding: 20px 20px;
+    }
+    .nav-bar li ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        white-space: nowrap;
+        background-color: #ffffff;
+    }
+    .nav-bar li:hover ul {
+        display: block;
+    }
+    
+    .nav-bar ul li {
+        display: inline-block; /* Display content in a single line*/
+        position: relative; /* Position sub-menu relative to top-menu item */
+        background: f#add; /* Change background color of list items */
+        padding: 15px 0px; /* Add space around text */
+        margin: 0 ;
+        font: bold 1.2rem/1.4rem; /* font style */
+        border-radius: 2px; /* Round corners */
+    }
+    
+    .nav-bar ul li ul {
+        left: -9999999999px; /* place sub-menu off screen */
+        top: 48px; /* tweak vertical position of sub-menu*/
+        position: absolute; /* position sub-menu absolutely underneath menu items */
+    }
+    
+    .nav-bar ul li:hover ul {
+        left: 0px; /* Bring sub-menu back on-screen*/
+        width: 250px;
+      }
+    
+    .nav-bar ul li:hover {
+        background: #9e9e9ee5; /* Change color on hover */ /*suggested 90% opacity*/
+      }
+    
+    .nav-bar ul li ul li {
+        
+        display: block; /* Display sub-menu as one large block */
+        background: #add8e6; /* Initially show submenu with black background */
+      }
+    
+    .nav-bar ul li ul li:hover {
+        background: #9e9e9ee5; /*suggested 90% opacity*/
+      }
+    
+    .nav-bar ul li ul li a {
+        color: #000; /* Set font color in drop down*/
+      }
+    
+
+    /* Main content grid for mobile */
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Portfolio section for mobile */
+    .column-2 .portfolio-section {
+        grid-template-columns: 1fr;
+    }
+    .column-1 {
+        background-color: #f5f5f5;
+        padding: 1rem;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column; /*insures that my image is above the text rather than beside it*/
+        margin-left: 0rem;
+}
+
+/* Media Query for Tablet Devices */
+@media (min-width: 769px) and (max-width: 1024px) {
+    /* Header grid for tablet */
+    header {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Main content grid for tablet */
+    .grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Portfolio section for tablet */
+    .column-2 .portfolio-section {
+        grid-template-columns: 1fr;
+    }
+}
