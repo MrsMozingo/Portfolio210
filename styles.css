@@ -5,11 +5,12 @@ body, h3, p {
     font-family: Arial, sans-serif;
 }
 body {
-    background-color: #add8e6; /* pale blue */
-    color: #000; /* black */
+    background-color: #add8e6;
+    color: #000;
 }
 
 /* Styling for the header and navigation */
+/* NEEDS LOTS OF WORK */
 header {
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -18,6 +19,7 @@ header {
 }
 .logo img {
     max-width: 100%;
+    border: 2px solid rgb(0, 0, 0);
 }
 .nav-bar ul {
     list-style: none;
@@ -62,17 +64,20 @@ header {
     justify-content: center;
     align-items: center;
     flex-direction: column; /*insures that my image is above the text rather than beside it*/
+    margin-left: 1rem;
 }
 
 .column-1 img {
     display: block;
     border: 5px solid black;
-    margin: 2rem auto;
+    margin: 2rem auto; /* Figure out what's wrong with the image alignment here */
+
 }
 
 .column-1 p {
     text-indent: 2rem;
     margin-top: 1rem;
+    line-height: 2;
 }
 
 .column-2 .portfolio-section {
@@ -80,6 +85,11 @@ header {
     grid-template-columns: repeat(2, 1fr);
     column-gap: 1rem;
     row-gap: 1rem;
+    margin: 0 1rem;
+}
+
+.column-2 .everything-else {
+    margin: 1rem;
 }
 
 .portfolio-item, .everything-else {
@@ -88,13 +98,25 @@ header {
     text-align: center;
 }
 
+.portfolio-item a, .everything-else a {
+    text-decoration: none;
+    color: black;
+}
+
+.portfolio-item:hover, .everything-else:hover {
+    background-color: rgb(255, 255, 255); /* background color of hovered image */
+    transform: scale(1.025); /* increases size when hovered */
+    transition: 0.3s; /* speed in which the image increases when hovered */
+}
+
+
 .everything-else {
     margin-top: 1rem;
 }
 
 .everything-else img {
     width: 100%;
-    gap: 1rem;    
+    /* gap: 5rem;   I don't think this is doing anything -  come back to it - can probably erase  */
 }
 
 img {
@@ -103,7 +125,12 @@ img {
 
 /* Footer styles */
 footer {
-    background-color: #fff;
-    padding: 10px;
+    background-color: #ffffff;
+    padding: 30px;
     text-align: center;
+    line-height: 2.0;
+}
+
+footer a {
+    text-decoration: none;
 }
