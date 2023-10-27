@@ -21,6 +21,10 @@ header {
     max-width: 100%;
     border: 2px solid rgb(0, 0, 0);
 }
+
+.nav-bar {
+    margin-top: auto;
+}
 .nav-bar ul {
     list-style: none;
     padding: 0;
@@ -31,8 +35,8 @@ header {
     position: relative;
 }
 .nav-bar a {
-    text-decoration: none;
-    color: #000;
+    text-decoration: none; /* Remove underlines from links */
+    color: #000; /* Change link color */
     padding: 5px 10px;
 }
 .nav-bar li ul {
@@ -46,6 +50,17 @@ header {
 .nav-bar li:hover ul {
     display: block;
 }
+
+/* Add transition property to anchor tags in the navigation bar */
+.nav-bar a {
+    transition: transform 0.3s ease; /* Adjust the duration (0.3s) and easing function (ease) as desired */
+}
+
+/* Transform the anchor tag when hovered, but exclude dropdown anchor tags */
+.nav-bar li:not(li li) a:hover {
+    transform: scale(1.05); /* Adjust the scale factor (1.05) as desired */
+}
+
 
 /* Main content styling with grid */
 .grid {
@@ -125,6 +140,56 @@ img {
 
 /* Footer styles */
 footer {
+    background-color: #ffffff;
+    padding: 30px;
+    text-align: center;
+    line-height: 2.0;
+}
+
+footer a {
+    text-decoration: none;
+}
+
+/* Media Query for Mobile Devices */
+@media (max-width: 768px) {
+    /* Header grid for mobile */
+    header {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-bar ul {
+        flex-direction: column; 
+        align-items: center;
+    }
+
+    /* Main content grid for mobile */
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Portfolio section for mobile */
+    .column-2 .portfolio-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Media Query for Tablet Devices */
+@media (min-width: 769px) and (max-width: 1024px) {
+    /* Header grid for tablet */
+    header {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Main content grid for tablet */
+    .grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Portfolio section for tablet */
+    .column-2 .portfolio-section {
+        grid-template-columns: 1fr;
+    }
+}
     background-color: #ffffff;
     padding: 30px;
     text-align: center;
