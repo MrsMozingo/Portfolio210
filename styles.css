@@ -190,12 +190,3 @@ footer a {
         grid-template-columns: 1fr;
     }
 }
-    background-color: #ffffff;
-    padding: 30px;
-    text-align: center;
-    line-height: 2.0;
-}
-
-footer a {
-    text-decoration: none;
-}
