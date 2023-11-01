@@ -10,12 +10,13 @@ body {
 }
 
 /* Styling for the header and navigation */
-/* NEEDS LOTS OF WORK */
 header {
     display: grid;
     grid-template-columns: 1fr 2fr;
     background-color: #fff;
     padding: 10px;
+    align-items: center;
+
 }
 .logo img {
     max-width: 100%;
@@ -25,6 +26,8 @@ header {
 .nav-bar {
     margin-top: auto;
     font-weight: bold;
+    align-self: center;
+    padding-bottom: 10%;
 }
 .nav-bar ul {
     list-style: none;
@@ -55,7 +58,7 @@ header {
 .nav-bar ul li {
     display: inline-block; /* Display content in a single line*/
     position: relative; /* Position sub-menu relative to top-menu item */
-    background: #add8e6; /* Change background color of list items */
+    background: #ffffff00; /* Change background color of list items */
     padding: 15px 0px; /* Add space around text */
     margin: 0 ;
     font: bold 1.2rem/1.4rem; /* font style */
@@ -121,7 +124,7 @@ header {
 .column-1 p {
     text-indent: 2rem;
     margin-top: 1rem;
-    line-height: 2;
+    line-height: 2.0;
 }
 
 .column-2 .portfolio-section {
@@ -179,6 +182,25 @@ footer a {
     text-decoration: none;
 }
 
+/* Media Query for Tablet Devices */
+@media (min-width: 769px) and (max-width: 1024px) {
+    /* Header grid for tablet */
+    header {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Main content grid for tablet */
+    .grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Portfolio section for tablet */
+    .column-2 .portfolio-section {
+        grid-template-columns: 1fr;
+    }
+
+}
+
 /* Media Query for Mobile Devices */
 @media (max-width: 768px) {
     /* Header grid for mobile */
@@ -200,15 +222,18 @@ footer a {
         align-items:center;
     }
     
-    .nav-bar {
+    /* .nav-bar {
         margin-top: auto;
         font-weight: bold;
-    }
-    .nav-bar ul {
+    } */
+    /* .nav-bar ul {
         list-style: none;
         padding: 100;
         display: flex;
         justify-content: space-between;
+    } */
+    .nav-bar li ul {
+        display: none;
     }
     .nav-bar li {
         position: relative;
@@ -216,8 +241,9 @@ footer a {
     .nav-bar a {
         text-decoration: none; /* Remove underlines from links */
         color: #000; /* Change link color */
-        padding: 20px 20px;
+        padding: 15px 20px 20px 20px;
     }
+
     .nav-bar li ul {
         display: none;
         position: absolute;
@@ -227,23 +253,28 @@ footer a {
         background-color: #ffffff;
     }
     .nav-bar li:hover ul {
-        display: block;
+        display: none;
     }
     
     .nav-bar ul li {
         display: inline-block; /* Display content in a single line*/
         position: relative; /* Position sub-menu relative to top-menu item */
-        background: f#add; /* Change background color of list items */
+        background:#add8e6; /* Change background color of list items */
         padding: 15px 0px; /* Add space around text */
         margin: 0 ;
         font: bold 1.2rem/1.4rem; /* font style */
         border-radius: 2px; /* Round corners */
+        border-bottom: 1px solid #000;
     }
     
     .nav-bar ul li ul {
         left: -9999999999px; /* place sub-menu off screen */
-        top: 48px; /* tweak vertical position of sub-menu*/
+        top: 0px; /* tweak vertical position of sub-menu*/
         position: absolute; /* position sub-menu absolutely underneath menu items */
+    }
+
+    .nav-bar ul li .mobile-menu {
+        border-bottom: none; /* removes bottom border to all li except the last one */ /* Why doesn't this work?*/
     }
     
     .nav-bar ul li:hover ul {
@@ -286,22 +317,6 @@ footer a {
         align-items: center;
         flex-direction: column; /*insures that my image is above the text rather than beside it*/
         margin-left: 0rem;
-}
-
-/* Media Query for Tablet Devices */
-@media (min-width: 769px) and (max-width: 1024px) {
-    /* Header grid for tablet */
-    header {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    /* Main content grid for tablet */
-    .grid {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    /* Portfolio section for tablet */
-    .column-2 .portfolio-section {
-        grid-template-columns: 1fr;
     }
 }
+
