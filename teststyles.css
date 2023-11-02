@@ -32,8 +32,10 @@ header {
 .nav-bar ul {
     list-style: none;
     padding: 0;
-    display: flex;
-    justify-content: space-between;
+    /* display: flex; */
+    white-space: nowrap;
+    /* justify-content: space-between; */
+    text-align: right;
 }
 .nav-bar li {
     position: relative;
@@ -197,6 +199,15 @@ footer a {
     /* Portfolio section for tablet */
     .column-2 .portfolio-section {
         grid-template-columns: 1fr;
+    }
+
+    /* Nav For tablet */
+
+    .nav-bar li ul {
+        display: none;
+    }
+    .nav-bar li:hover ul {
+        display: none;
     }
 
 }
