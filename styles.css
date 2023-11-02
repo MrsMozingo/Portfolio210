@@ -10,26 +10,35 @@ body {
 }
 
 /* Styling for the header and navigation */
-/* NEEDS LOTS OF WORK */
 header {
     display: grid;
     grid-template-columns: 1fr 2fr;
     background-color: #fff;
     padding: 10px;
+
+}
+.logo {
+    display: grid;
+    margin: 0 auto;
 }
 .logo img {
-    max-width: 100%;
-    border: 2px solid rgb(0, 0, 0);
-}
+      display: block;
+     max-width: 90%;
+      border: 2px solid rgb(0, 0, 0);
+     margin: 0 auto;
+    }
 
 .nav-bar {
     margin-top: auto;
+    font-weight: bold;
+    align-self: center;
 }
 .nav-bar ul {
     list-style: none;
     padding: 0;
-    display: flex;
-    justify-content: space-between;
+    /* display: flex; */
+    white-space: nowrap;
+    /* text-align: right; */
 }
 .nav-bar li {
     position: relative;
@@ -38,6 +47,7 @@ header {
     text-decoration: none; /* Remove underlines from links */
     color: #000; /* Change link color */
     padding: 5px 10px;
+    /* padding: 15px 20px 20px 20px; THE OTHER USED THESE NUMBERS SO PLAY WITH IT WHEN YOU ADD IT BACK */
 }
 .nav-bar li ul {
     display: none;
@@ -46,20 +56,19 @@ header {
     left: 0;
     white-space: nowrap;
     background-color: #fff;
-}
-.nav-bar li:hover ul {
-    display: block;
+    border-radius: 3px;
 }
 
-/* Add transition property to anchor tags in the navigation bar */
-.nav-bar a {
-    transition: transform 0.3s ease; /* Adjust the duration (0.3s) and easing function (ease) as desired */
-}
 
-/* Transform the anchor tag when hovered, but exclude dropdown anchor tags */
-.nav-bar li:not(li li) a:hover {
-    transform: scale(1.05); /* Adjust the scale factor (1.05) as desired */
-}
+/* *******NEEDS TO BE ADDED TO tablet VIEW?********** */
+/* .nav-bar li:hover ul {
+    display: none;
+} */
+
+/* *******I THINK THIS CAN BE DELETED********** */
+/* .nav-bar li {
+    position: relative;
+} */
 
 
 /* Main content styling with grid */
@@ -69,24 +78,20 @@ header {
     gap: 10px; /* padding between columns */
     padding: 20px 0;
 }
-/* .column-1 {
-    background-color: #f5f5f5;
-    padding: 20px;
-} */
 .column-1 {
     background-color: #f5f5f5;
     padding: 1rem;
     justify-content: center;
     align-items: center;
     flex-direction: column; /*insures that my image is above the text rather than beside it*/
-    margin-left: 1rem;
+    margin: 0 1rem;
 }
 
 .column-1 img {
     display: block;
     border: 5px solid black;
-    margin: 2rem auto; /* Figure out what's wrong with the image alignment here */
-
+    margin: 2rem auto;
+    box-sizing: border-box;
 }
 
 .column-1 p {
@@ -150,6 +155,9 @@ footer a {
     text-decoration: none;
 }
 
+
+
+
 /* Media Query for Mobile Devices */
 @media (max-width: 768px) {
     /* Header grid for mobile */
@@ -171,6 +179,49 @@ footer a {
     .column-2 .portfolio-section {
         grid-template-columns: 1fr;
     }
+
+    /* ************* Mobile First ********************** */
+
+.menu-wrap { 					/* .menu-wrap contains all parts of our navigation */
+    background-color: #add8e6;   /* Set background color */
+    height: 3em;				/* Set height for navigation */
+    width: 2em;					/* Set width */
+    padding: 10px 15px;			/* em would be the best unit but px is fine for now */
+    position: fixed;			/* Lock navigation to top of screen */
+}
+.menu-icon {
+    font-size: 3em;				/* Set size of hamburger menu icon */
+    color: rgb(0, 0, 0);				/* color of hamburger menu lines */
+}
+#checkbox {
+    display: none;				/* Although we need the functionality of the checkbox, we don't want to see the checkbox */
+}
+#checkbox:checked ~ .nav-bar ul {	/* ~ means at same level */
+    width: 10em;				/* When checkbox is checked, expand menu - this determines the width*/
+}
+.nav-bar {
+    top: 155px;					/* Add space so nav opens below hamburger icon */
+    left: 0;
+    position: absolute;			/* Position nav absolutely on page so it overlaps other page content when open */
+}
+.nav-bar ul {
+    list-style-type: none;		/* Get rid of bullets in unordered list */
+    font-size: 1.5em;			/* Increase size for smaller devices */
+    padding: 1em 0em;
+    background-color: #add8e6;
+    width: 0em;					/* Nav should be collapsed by default */
+    overflow: hidden; 			/* Hide contents when collapsed */
+    transition: width 0.5s;		/* Show the menu (width) opening and closing over 0.5 seconds */
+    border-radius: 3px;
+}
+.nav-bar a {
+    text-decoration: none;		/* Get rid of underlines on links */
+    padding: 0.75em 2.5em;		/* Set padding around each link */
+    color: #000000;
+    display: block;
+}
+
+/* ************* Mobile First End ******************* */
 }
 
 /* Media Query for Tablet Devices */
@@ -189,4 +240,113 @@ footer a {
     .column-2 .portfolio-section {
         grid-template-columns: 1fr;
     }
+
+    /* Navigation */
+
+    #checkbox {
+        display: none;
+    }
+
+    .menu-icon {
+        display: none;
+    }
+    .nav-bar ul {
+        display: flex; /* Use flexbox for the navigation list */
+        justify-content: space-between; /* Distribute the space between items equally */
+        padding: 0; /* Remove any default padding */
+    }
+    
+    .nav-bar ul li {
+        flex: 1;
+        text-align: center;
+    }
+
+}
+
+/* Media Query for Desktop Devices */
+@media (min-width: 1024px) {
+    /* Header grid for tablet */
+    header {
+        grid-template-columns: 1fr 2fr;
+    }
+
+    /* Main content grid for desktop */
+    .grid {
+        grid-template-columns: 1fr 2fr;
+    }
+
+    /* Portfolio section for desktop */
+    .column-2 .portfolio-section {
+        grid-template-columns: 1fr 1fr;
+    }  
+    /* Navigation */
+
+    #checkbox {
+        display: none;
+    }
+
+    .menu-icon {
+        display: none;
+    }
+
+    /* .menu-wrap {
+        display: none;
+    } */
+    .nav-bar li:hover ul {
+        display: block;
+    }
+    .nav-bar a {
+        transition: transform 0.3s ease;
+    }
+    /* Transform the anchor tag when hovered, but exclude dropdown anchor tags -  Adjust scale amount in ()'s*/
+    .nav-bar li:not(li li) a:hover {
+        transform: scale(1.05);
+    }
+
+    .nav-bar ul {
+        display: flex; /* Use flexbox for the navigation list */
+        justify-content: space-between; /* Distribute the space between items equally */
+        padding: 0; /* Remove any default padding */
+    }
+
+    .nav-bar ul li {
+        display: block;
+        position: relative;
+        padding: 15px 0px;
+        flex: 1;
+        text-align: center;
+        border-radius: 3px;
+    }
+    .nav-bar ul li ul {
+        left: -9999999999px; /* place sub-menu off screen */
+        top: 48px; /* tweak vertical position of sub-menu*/
+        position: absolute; /* position sub-menu absolutely underneath menu items */
+    }
+    
+    .nav-bar ul li:hover ul {
+        left: 0px; /* Bring sub-menu back on-screen*/
+        width: 250px;
+      }
+    
+    .nav-bar ul li:hover {
+        background: #9e9e9ee5; /* Change color on hover */ /*suggested 90% opacity*/
+      }
+    
+    .nav-bar ul li ul li {
+        
+        display: block; /* Display sub-menu as one large block */
+        background: #add8e6; /* Initially show submenu with black background */
+        text-align: left;
+        padding-left: 24px;
+        border-radius: 3px;
+      }
+    
+    .nav-bar ul li ul li:hover {
+        background: #9e9e9ee5; /*suggested 90% opacity*/
+      }
+    
+    .nav-bar ul li ul li a {
+        color: #000; /* Set font color in drop down*/
+      }
+    
 }
